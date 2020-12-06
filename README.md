@@ -1,3 +1,3 @@
-# MVC-JPA
+# Spring-MVC-JPA
 
-The JPA version of the MVC-JDBC App
+The Spring Implementation with Java Annotations of the MVC-JPA App
