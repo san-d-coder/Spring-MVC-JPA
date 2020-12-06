@@ -8,9 +8,12 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
+import org.springframework.stereotype.Repository;
+
 import com.sandcoder.literals.StudentQueries;
 import com.sandcoder.model.Student;
 
+@Repository("studentRepository")
 public class StudentRepositoryImpl implements StudentRepository {
 	
 	//Define Entity Manager Factory

@@ -5,8 +5,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 import com.sandcoder.controller.StudentController;
-import com.sandcoder.controller.StudentControllerImpl;
 
 
 public class App 
@@ -20,7 +22,12 @@ public class App
     public static void main( String[] args ) throws SQLException, IOException
     {
         while(true) {
-        studentController = new StudentControllerImpl();
+        	
+        ApplicationContext applicationContext = 
+        		new AnnotationConfigApplicationContext(AppConfig.class);
+        
+        studentController = applicationContext.getBean("studentController",StudentController.class);
+        
         System.out.println("Select an Option from Below: ");
         System.out.println("1. Show All Students ");
         System.out.println("2. Show One Student ");

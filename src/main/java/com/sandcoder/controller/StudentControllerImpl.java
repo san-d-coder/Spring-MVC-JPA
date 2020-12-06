@@ -2,17 +2,22 @@ package com.sandcoder.controller;
 
 import java.sql.SQLException;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
 import com.sandcoder.model.Student;
 import com.sandcoder.service.StudentService;
-import com.sandcoder.service.StudentServiceImpl;
 
+
+@Controller("studentController")
 public class StudentControllerImpl implements StudentController {
 	
 	private StudentService studentService;
 	private Student student;
 	
-	public StudentControllerImpl() {
-		studentService = new StudentServiceImpl();
+	@Autowired
+	public StudentControllerImpl(StudentService studentService) {
+		this.studentService = studentService;
 	}
 	
 	@Override

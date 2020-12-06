@@ -2,17 +2,23 @@ package com.sandcoder.service;
 
 import java.sql.SQLException;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.sandcoder.model.Student;
 import com.sandcoder.repository.StudentRepository;
-import com.sandcoder.repository.StudentRepositoryImpl;
 
+
+
+@Service("studentService")
 public class StudentServiceImpl implements StudentService {
 	
 	private StudentRepository studentRepository;
 	private String result;
 	
-	public StudentServiceImpl() {
-		studentRepository = new StudentRepositoryImpl();
+	@Autowired
+	public StudentServiceImpl(StudentRepository studentRepository) {
+		this.studentRepository = studentRepository;
 	}
 	
 	
